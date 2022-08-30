@@ -79,7 +79,7 @@ export const getStaticProps = withNavStaticProps<IHome>(async () => {
     ? await fetchFeaturedProducts(nodeId)
     : undefined;
   const featuredNodes = await fetchFeaturedNodes();
-
+  
   return {
     props: {
       featuredNodes,
