@@ -12,11 +12,10 @@ export const getStaticProps = async (context) => {
   }
 }
 
-const Home = (props) => (
+const Content = (props) => (
   <BuilderComponent
     content={props.content}
     model="home-content" />
-)
+) 
 
-export default Home;
-
+export default Content;

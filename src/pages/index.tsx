@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next/types';
 import { chakra, Grid, GridItem } from "@chakra-ui/react";
 
 import type { Node, Promotion } from "@moltin/sdk";
@@ -14,6 +15,7 @@ import FeaturedNodes from "../components/featured-nodes/FeaturedNodes";
 import { fetchFeaturedNodes } from "../components/featured-nodes/fetchFeaturedNodes";
 
 import { withNavStaticProps } from "../lib/nav-wrapper-ssg";
+import { BuilderComponent } from '@builder.io/react';
 
 const nodeId = process.env.NEXT_PUBLIC_DEMO_NODE_ID || "";
 const promotionId = process.env.NEXT_PUBLIC_DEMO_PROMO_ID || "";
@@ -30,42 +32,41 @@ const Home: NextPage<IHome> = ({
   featuredNodes,
 }) => {
   return (
-    <chakra.main>
-      {promotion && (
-        <PromotionBanner
-          promotion={promotion}
-          linkProps={{
-            link: "/cart",
-            text: "Shop Now",
-          }}
-        />
-      )}
-      <Grid gap="12" padding={{ base: "2rem", md: "4rem" }}>
-        <GridItem>
-          {featuredProducts && (
-            <FeaturedProducts
-              title="Trending Products"
+  <><>
+        <BuilderComponent model="home-content" />
+        <chakra.main>
+          {promotion && (
+            <PromotionBanner
+              promotion={promotion}
               linkProps={{
-                link: `/category/${nodeId}`,
-                text: "See all products",
-              }}
-              type="provided"
-              products={featuredProducts}
-            />
+                link: "/cart",
+                text: "Shop Now",
+              }} />
           )}
-        </GridItem>
-        <GridItem>
-          {featuredNodes && (
-            <FeaturedNodes
-              type="provided"
-              nodes={featuredNodes}
-              linkProps={{ text: "Browse all categories", link: "/category" }}
-              title="Shop by Category"
-            />
-          )}
-        </GridItem>
-      </Grid>
-    </chakra.main>
+          <Grid gap="12" padding={{ base: "2rem", md: "4rem" }}>
+            <GridItem>
+              {featuredProducts && (
+                <FeaturedProducts
+                  title="Trending Products"
+                  linkProps={{
+                    link: `/category/${nodeId}`,
+                    text: "See all products",
+                  }}
+                  type="provided"
+                  products={featuredProducts} />
+              )}
+            </GridItem>
+            <GridItem>
+              {featuredNodes && (
+                <FeaturedNodes
+                  type="provided"
+                  nodes={featuredNodes}
+                  linkProps={{ text: "Browse all categories", link: "/category" }}
+                  title="Shop by Category" />
+              )}
+            </GridItem>
+          </Grid>
+        </chakra.main></></>
   );
 };
 
