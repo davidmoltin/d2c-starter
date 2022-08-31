@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
-import { GetStaticPropsContext, InferGetStaticPropsType } from 'next/types';
-import { chakra, Grid, GridItem } from "@chakra-ui/react";
+import { chakra } from "@chakra-ui/react";
 
 import type { Node, Promotion } from "@moltin/sdk";
 import { ProductResponseWithImage } from "../lib/product-types";
@@ -23,17 +22,8 @@ const Home: NextPage<IHome> = ({
 }) => {
   return (
   <><>
-        <BuilderComponent model="content" />
         <chakra.main>
-          
-          <Grid gap="12" padding={{ base: "2rem", md: "4rem" }}>
-            <GridItem>
-              
-            </GridItem>
-            <GridItem>
-              
-            </GridItem>
-          </Grid>
+          <BuilderComponent model="content" />
         </chakra.main></></>
   );
 };
