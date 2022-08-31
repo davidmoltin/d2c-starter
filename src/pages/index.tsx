@@ -33,7 +33,7 @@ const Home: NextPage<IHome> = ({
 }) => {
   return (
   <><>
-        <BuilderComponent model="home-content" />
+        <BuilderComponent model="content" />
         <chakra.main>
           {promotion && (
             <PromotionBanner

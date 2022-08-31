@@ -10,9 +10,7 @@ import { BuilderComponent } from '@builder.io/react';
 import "../components/checkout/CardSectionStyles.css";
 import "../styles/globals.css";
 
-const builderId = process.env.BUILDER_PUBLIC_KEY || "";
-
-builder.init('builderId')
+builder.init('b0eaf95136f5471aacdd2e196aa5a102')
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
