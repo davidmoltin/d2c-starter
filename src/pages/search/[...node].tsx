@@ -7,13 +7,20 @@ import {
 } from "../../lib/search-props";
 import Search from "../../components/search/SearchPage";
 import { buildBreadcrumbLookup } from "../../lib/build-breadcrumb-lookup";
+import { BuilderComponent } from '@builder.io/react';
+import { chakra } from "@chakra-ui/react";
 
 interface INodeSearch extends ISearch {
   nodeName?: string | string[];
 }
 
 export function NodeSearch(props: INodeSearch): JSX.Element {
-  return <Search {...props} />;
+  return (
+          <><chakra.main>
+            <BuilderComponent model="content" />
+              <Search {...props} />
+          </chakra.main></>
+  );
 }
 
 export const getServerSideProps = withNavServerSideProps<ISearch, SearchQuery>(
