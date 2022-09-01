@@ -67,7 +67,7 @@ const HorizontalCarousel = ({
               }
             >
               <Image
-                style={{ objectFit: "cover", borderRadius: "0.375rem" }}
+                style={{ objectFit: "cover", layout: "fill", borderRadius: "0.375rem" }}
                 onClick={() => setSelectedImage(image)}
                 hasMasterSpinner={false}
                 alt={image.name}

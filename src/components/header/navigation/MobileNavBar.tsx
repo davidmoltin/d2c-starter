@@ -26,6 +26,7 @@ import { NavigationNode } from "../../../lib/build-site-navigation";
 import SearchModal from "../../search/SearchModal";
 import NavItemContent from "./NavItemContent";
 import CartMenu from "../../cart-items/CartMenu";
+import Image from 'next/image';
 
 import EpIcon from "../../../../public/icons/ep-icon.svg";
 
@@ -47,7 +48,8 @@ const MobileNavBar = ({ nav }: IMobileNavBar): JSX.Element => {
         <Link href="/">
           <a>
             <Box position="relative" minW={10} w={10} h={10}>
-              <EpIcon />
+              <EpIcon
+              alt="Elastic Path D2C Starter Kit" />
             </Box>
           </a>
         </Link>

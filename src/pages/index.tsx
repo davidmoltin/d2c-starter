@@ -12,9 +12,7 @@ const nodeId = process.env.NEXT_PUBLIC_DEMO_NODE_ID || "";
 const promotionId = process.env.NEXT_PUBLIC_DEMO_PROMO_ID || "";
 
 export interface IHome {
-  promotion?: Promotion;
-  featuredProducts?: ProductResponseWithImage[];
-  featuredNodes?: Node[];
+
 }
 
 const Home: NextPage<IHome> = ({
@@ -24,6 +22,7 @@ const Home: NextPage<IHome> = ({
   <><>
         <chakra.main>
           <BuilderComponent model="content" />
+          <BuilderComponent model="product-listing" />
         </chakra.main></></>
   );
 };
